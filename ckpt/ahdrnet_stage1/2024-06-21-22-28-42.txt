@@ -1,0 +1,136 @@
+----------------- Options ---------------
+                    alpha: 0.99                          
+               batch_size: 16                            
+                    beta1: 0.9                           
+                    beta2: 0.999                         
+             calc_metrics: True                          
+          checkpoints_dir: ./ckpt                        
+                     chop: False                         
+                 dataroot: /data1/zyl/test/SelfHDR-master/traindata/	[default: ]
+             dataset_name: sig17align                    	[default: ['eth']]
+                drop_last: True                          
+                  gpu_ids: 1                             	[default: 0]
+                init_gain: 0.02                          
+                init_type: default                       
+                  isTrain: True                          	[default: None]
+                load_iter: 0                             	[default: [0]]
+          load_optimizers: False                         
+                load_path:                               
+                       lr: 0.0001                        
+           lr_decay_iters: 50                            	[default: 200]
+                lr_policy: step                          
+         max_dataset_size: inf                           
+                    model: selfhdr1                      	[default: None]
+                 momentum: 0                             
+                     name: ahdrnet_stage1                	[default: None]
+                  network: AHDRNet                       	[default: None]
+                    niter: 150                           	[default: 1000]
+              niter_decay: 0                             
+           num_dataloader: 8                             
+                optimizer: Adam                          
+               patch_size: 128                           
+               print_freq: 300                           	[default: 100]
+          save_epoch_freq: 1                             
+                save_imgs: False                         
+           serial_batches: False                         	[default: None]
+                  shuffle: True                          
+         stage0_inference: False                         
+          stru_lable_path:                               
+                   suffix:                               
+               test_every: 1000                          
+                  verbose: True                          
+             weight_decay: 0                             
+----------------- End -------------------
+The GPUs you are using:
+  1 *NVIDIA GeForce RTX 3090* with capability 8.6
+Starting to load images via multiple imreaders
+['/data1/zyl/test/SelfHDR-master/traindata/Training/002/exposure.txt', ['/data1/zyl/test/SelfHDR-master/traindata/Training/002/262A0967.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/002/262A0968.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/002/262A0969.tif'], '/data1/zyl/test/SelfHDR-master/traindata/Training_align/002/HDRImg.hdr', '002', '/data1/zyl/test/SelfHDR-master/traindata/Training_align/002/HDRImg.hdr'] fails!
+['/data1/zyl/test/SelfHDR-master/traindata/Training/004/exposure.txt', ['/data1/zyl/test/SelfHDR-master/traindata/Training/004/262A1059.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/004/262A1060.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/004/262A1061.tif'], '/data1/zyl/test/SelfHDR-master/traindata/Training_align/004/HDRImg.hdr', '004', '/data1/zyl/test/SelfHDR-master/traindata/Training_align/004/HDRImg.hdr'] fails!
+['/data1/zyl/test/SelfHDR-master/traindata/Training/003/exposure.txt', ['/data1/zyl/test/SelfHDR-master/traindata/Training/003/262A0981.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/003/262A0982.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/003/262A0983.tif'], '/data1/zyl/test/SelfHDR-master/traindata/Training_align/003/HDRImg.hdr', '003', '/data1/zyl/test/SelfHDR-master/traindata/Training_align/003/HDRImg.hdr'] fails!
+['/data1/zyl/test/SelfHDR-master/traindata/Training/005/exposure.txt', ['/data1/zyl/test/SelfHDR-master/traindata/Training/005/262A1066.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/005/262A1067.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/005/262A1068.tif'], '/data1/zyl/test/SelfHDR-master/traindata/Training_align/005/HDRImg.hdr', '005', '/data1/zyl/test/SelfHDR-master/traindata/Training_align/005/HDRImg.hdr'] fails!
+['/data1/zyl/test/SelfHDR-master/traindata/Training/001/exposure.txt', ['/data1/zyl/test/SelfHDR-master/traindata/Training/001/262A0898.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/001/262A0899.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/001/262A0900.tif'], '/data1/zyl/test/SelfHDR-master/traindata/Training_align/001/HDRImg.hdr', '001', '/data1/zyl/test/SelfHDR-master/traindata/Training_align/001/HDRImg.hdr'] fails!
+dataset [sig17align(train)] created
+The number of training images = 19200
+Starting to load images via multiple imreaders
+['/data1/zyl/test/SelfHDR-master/traindata/Test/新建文件夹/exposure.txt', [], '/data1/zyl/test/SelfHDR-master/traindata/Test/新建文件夹/HDRImg.hdr', '新建文件夹', []] fails!
+dataset [sig17align(val)] created
+The number of val images = 16
+model [SelfHDR1Model] was created
+---------- Networks initialized -------------
+DataParallel(
+  (module): AHDR(
+    (conv1): Conv2d(6, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (conv2): Conv2d(192, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (att11): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (att12): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (att31): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (att32): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (RDB1): DRDB(
+      (dense_layers): Sequential(
+        (0): make_dilation_dense(
+          (conv): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (1): make_dilation_dense(
+          (conv): Conv2d(96, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (2): make_dilation_dense(
+          (conv): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (3): make_dilation_dense(
+          (conv): Conv2d(160, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (4): make_dilation_dense(
+          (conv): Conv2d(192, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+      )
+      (conv_1x1): Conv2d(224, 64, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (RDB2): DRDB(
+      (dense_layers): Sequential(
+        (0): make_dilation_dense(
+          (conv): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (1): make_dilation_dense(
+          (conv): Conv2d(96, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (2): make_dilation_dense(
+          (conv): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (3): make_dilation_dense(
+          (conv): Conv2d(160, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (4): make_dilation_dense(
+          (conv): Conv2d(192, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+      )
+      (conv_1x1): Conv2d(224, 64, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (RDB3): DRDB(
+      (dense_layers): Sequential(
+        (0): make_dilation_dense(
+          (conv): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (1): make_dilation_dense(
+          (conv): Conv2d(96, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (2): make_dilation_dense(
+          (conv): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (3): make_dilation_dense(
+          (conv): Conv2d(160, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (4): make_dilation_dense(
+          (conv): Conv2d(192, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+      )
+      (conv_1x1): Conv2d(224, 64, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (GFF_1x1): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1))
+    (GFF_3x3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (conv_up): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (conv3): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): LeakyReLU(negative_slope=0.01)
+  )
+)
+[Network SelfHDR] Total number of parameters : 1.242 M
+-----------------------------------------------

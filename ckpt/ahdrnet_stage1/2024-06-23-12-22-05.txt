@@ -1,0 +1,170 @@
+----------------- Options ---------------
+                    alpha: 0.99                          
+               batch_size: 16                            
+                    beta1: 0.9                           
+                    beta2: 0.999                         
+             calc_metrics: True                          
+          checkpoints_dir: ./ckpt                        
+                     chop: False                         
+                 dataroot: /data1/zyl/test/SelfHDR-master/traindata/	[default: ]
+             dataset_name: sig17align                    	[default: ['eth']]
+                drop_last: True                          
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: default                       
+                  isTrain: True                          	[default: None]
+                load_iter: 0                             	[default: [0]]
+          load_optimizers: False                         
+                load_path:                               
+                       lr: 0.0001                        
+           lr_decay_iters: 50                            	[default: 200]
+                lr_policy: step                          
+         max_dataset_size: inf                           
+                    model: selfhdr1                      	[default: None]
+                 momentum: 0                             
+                     name: ahdrnet_stage1                	[default: None]
+                  network: AHDRNet                       	[default: None]
+                    niter: 10                            	[default: 1000]
+              niter_decay: 0                             
+           num_dataloader: 8                             
+                optimizer: Adam                          
+               patch_size: 128                           
+               print_freq: 300                           	[default: 100]
+          save_epoch_freq: 1                             
+                save_imgs: False                         
+           serial_batches: False                         	[default: None]
+                  shuffle: True                          
+         stage0_inference: False                         
+          stru_lable_path:                               
+                   suffix:                               
+               test_every: 1000                          
+                  verbose: True                          
+             weight_decay: 0                             
+----------------- End -------------------
+The GPUs you are using:
+  0 *NVIDIA GeForce RTX 3090* with capability 8.6
+Starting to load images via multiple imreaders
+dataset [sig17align(train)] created
+The number of training images = 19200
+Starting to load images via multiple imreaders
+dataset [sig17align(val)] created
+The number of val images = 15
+model [SelfHDR1Model] was created
+---------- Networks initialized -------------
+DataParallel(
+  (module): AHDR(
+    (conv1): Conv2d(6, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (conv2): Conv2d(192, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (att11): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (att12): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (att31): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (att32): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (RDB1): DRDB(
+      (dense_layers): Sequential(
+        (0): make_dilation_dense(
+          (conv): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (1): make_dilation_dense(
+          (conv): Conv2d(96, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (2): make_dilation_dense(
+          (conv): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (3): make_dilation_dense(
+          (conv): Conv2d(160, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (4): make_dilation_dense(
+          (conv): Conv2d(192, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+      )
+      (conv_1x1): Conv2d(224, 64, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (RDB2): DRDB(
+      (dense_layers): Sequential(
+        (0): make_dilation_dense(
+          (conv): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (1): make_dilation_dense(
+          (conv): Conv2d(96, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (2): make_dilation_dense(
+          (conv): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (3): make_dilation_dense(
+          (conv): Conv2d(160, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (4): make_dilation_dense(
+          (conv): Conv2d(192, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+      )
+      (conv_1x1): Conv2d(224, 64, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (RDB3): DRDB(
+      (dense_layers): Sequential(
+        (0): make_dilation_dense(
+          (conv): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (1): make_dilation_dense(
+          (conv): Conv2d(96, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (2): make_dilation_dense(
+          (conv): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (3): make_dilation_dense(
+          (conv): Conv2d(160, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+        (4): make_dilation_dense(
+          (conv): Conv2d(192, 32, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2))
+        )
+      )
+      (conv_1x1): Conv2d(224, 64, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (GFF_1x1): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1))
+    (GFF_3x3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (conv_up): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (conv3): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (relu): LeakyReLU(negative_slope=0.01)
+  )
+)
+[Network SelfHDR] Total number of parameters : 1.242 M
+-----------------------------------------------
+(epoch: 1, iters: 300, time: 135.909, data: 0.451) StruExpan: 2.5408e-03 StruPrese: 1.8843e-03 Total: 4.4251e-03 
+(epoch: 1, iters: 600, time: 132.840, data: 0.005) StruExpan: 1.3041e-03 StruPrese: 1.2669e-03 Total: 2.5710e-03 
+(epoch: 1, iters: 900, time: 132.901, data: 0.006) StruExpan: 7.6113e-04 StruPrese: 5.2581e-04 Total: 1.2869e-03 
+(epoch: 1, iters: 1200, time: 132.875, data: 0.006) StruExpan: 4.9278e-04 StruPrese: 3.2969e-04 Total: 8.2247e-04 
+saving the model at the end of epoch 1, iters 1200
+End of epoch 1 / 10 	 Time Taken: 534.657 sec
+lr of SelfHDR_optimizer_Adam = 0.0001000
+End of epoch 1 / 10 (Val) 	 Time Taken: 1.366 s 	 PSNR: 30.839833
+(epoch: 2, iters: 300, time: 133.528, data: 0.505) StruExpan: 4.9560e-04 StruPrese: 3.6371e-04 Total: 8.5931e-04 
+(epoch: 2, iters: 600, time: 133.022, data: 0.005) StruExpan: 2.6910e-04 StruPrese: 2.1138e-04 Total: 4.8048e-04 
+(epoch: 2, iters: 900, time: 133.025, data: 0.005) StruExpan: 2.6172e-04 StruPrese: 1.8144e-04 Total: 4.4316e-04 
+(epoch: 2, iters: 1200, time: 132.997, data: 0.005) StruExpan: 1.5017e-04 StruPrese: 1.0017e-04 Total: 2.5034e-04 
+saving the model at the end of epoch 2, iters 2400
+End of epoch 2 / 10 	 Time Taken: 532.783 sec
+lr of SelfHDR_optimizer_Adam = 0.0001000
+End of epoch 2 / 10 (Val) 	 Time Taken: 1.116 s 	 PSNR: 33.920656
+(epoch: 3, iters: 300, time: 133.491, data: 0.505) StruExpan: 1.4111e-04 StruPrese: 1.1014e-04 Total: 2.5125e-04 
+(epoch: 3, iters: 600, time: 133.048, data: 0.006) StruExpan: 1.7513e-04 StruPrese: 1.3996e-04 Total: 3.1510e-04 
+(epoch: 3, iters: 900, time: 133.053, data: 0.006) StruExpan: 2.4645e-04 StruPrese: 1.2304e-04 Total: 3.6948e-04 
+(epoch: 3, iters: 1200, time: 132.979, data: 0.005) StruExpan: 1.9873e-04 StruPrese: 9.8512e-05 Total: 2.9724e-04 
+saving the model at the end of epoch 3, iters 3600
+End of epoch 3 / 10 	 Time Taken: 532.760 sec
+lr of SelfHDR_optimizer_Adam = 0.0001000
+End of epoch 3 / 10 (Val) 	 Time Taken: 1.112 s 	 PSNR: 34.591250
+(epoch: 4, iters: 300, time: 133.511, data: 0.527) StruExpan: 4.0426e-04 StruPrese: 1.1295e-04 Total: 5.1722e-04 
+(epoch: 4, iters: 600, time: 132.974, data: 0.006) StruExpan: 1.9316e-04 StruPrese: 1.0404e-04 Total: 2.9721e-04 
+(epoch: 4, iters: 900, time: 133.058, data: 0.006) StruExpan: 2.6929e-04 StruPrese: 9.9413e-05 Total: 3.6870e-04 
+(epoch: 4, iters: 1200, time: 133.048, data: 0.005) StruExpan: 2.5697e-04 StruPrese: 7.6814e-05 Total: 3.3379e-04 
+saving the model at the end of epoch 4, iters 4800
+End of epoch 4 / 10 	 Time Taken: 532.757 sec
+lr of SelfHDR_optimizer_Adam = 0.0001000
+End of epoch 4 / 10 (Val) 	 Time Taken: 1.111 s 	 PSNR: 34.340148
+(epoch: 5, iters: 300, time: 133.557, data: 0.537) StruExpan: 1.4454e-04 StruPrese: 7.6159e-05 Total: 2.2069e-04 
+(epoch: 5, iters: 600, time: 133.025, data: 0.006) StruExpan: 2.4193e-04 StruPrese: 7.6174e-05 Total: 3.1810e-04 
+(epoch: 5, iters: 900, time: 133.002, data: 0.006) StruExpan: 2.6228e-04 StruPrese: 6.1209e-05 Total: 3.2349e-04 
+(epoch: 5, iters: 1200, time: 132.998, data: 0.006) StruExpan: 4.0458e-04 StruPrese: 5.5642e-05 Total: 4.6023e-04 
+saving the model at the end of epoch 5, iters 6000
+End of epoch 5 / 10 	 Time Taken: 532.761 sec
+lr of SelfHDR_optimizer_Adam = 0.0001000
+End of epoch 5 / 10 (Val) 	 Time Taken: 1.114 s 	 PSNR: 34.856287

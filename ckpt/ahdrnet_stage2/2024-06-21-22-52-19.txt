@@ -1,0 +1,54 @@
+----------------- Options ---------------
+                    alpha: 0.99                          
+               batch_size: 16                            
+                    beta1: 0.9                           
+                    beta2: 0.999                         
+             calc_metrics: True                          
+          checkpoints_dir: ./ckpt                        
+                     chop: False                         
+                 dataroot: /data1/zyl/test/SelfHDR-master/traindata/	[default: ]
+             dataset_name: sig17align                    	[default: ['eth']]
+                drop_last: True                          
+                  gpu_ids: 1                             	[default: 0]
+                init_gain: 0.02                          
+                init_type: default                       
+                  isTrain: True                          	[default: None]
+                load_iter: 0                             	[default: [0]]
+          load_optimizers: False                         
+                load_path:                               
+                       lr: 0.0001                        
+           lr_decay_iters: 50                            	[default: 200]
+                lr_policy: step                          
+         max_dataset_size: inf                           
+                    model: selfhdr2                      	[default: None]
+                 momentum: 0                             
+                     name: ahdrnet_stage2                	[default: None]
+                  network: AHDRNet                       	[default: None]
+                    niter: 150                           	[default: 1000]
+              niter_decay: 0                             
+           num_dataloader: 8                             
+                optimizer: Adam                          
+               patch_size: 128                           
+               print_freq: 300                           	[default: 100]
+          save_epoch_freq: 1                             
+                save_imgs: False                         
+           serial_batches: False                         	[default: None]
+                  shuffle: True                          
+         stage0_inference: False                         
+          stru_lable_path: ./ckpt/ahdrnet_stage1/output_150	[default: ]
+                   suffix:                               
+               test_every: 1000                          
+                  verbose: True                          
+             weight_decay: 0                             
+----------------- End -------------------
+The GPUs you are using:
+  1 *NVIDIA GeForce RTX 3090* with capability 8.6
+Starting to load images via multiple imreaders
+['/data1/zyl/test/SelfHDR-master/traindata/Training/005/exposure.txt', ['/data1/zyl/test/SelfHDR-master/traindata/Training/005/262A1066.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/005/262A1067.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/005/262A1068.tif'], '/data1/zyl/test/SelfHDR-master/traindata/Training_align/005/HDRImg.hdr', '005', './ckpt/ahdrnet_stage1/output_150/005.hdr'] fails!
+['/data1/zyl/test/SelfHDR-master/traindata/Training/001/exposure.txt', ['/data1/zyl/test/SelfHDR-master/traindata/Training/001/262A0898.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/001/262A0899.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/001/262A0900.tif'], '/data1/zyl/test/SelfHDR-master/traindata/Training_align/001/HDRImg.hdr', '001', './ckpt/ahdrnet_stage1/output_150/001.hdr'] fails!
+['/data1/zyl/test/SelfHDR-master/traindata/Training/002/exposure.txt', ['/data1/zyl/test/SelfHDR-master/traindata/Training/002/262A0967.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/002/262A0968.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/002/262A0969.tif'], '/data1/zyl/test/SelfHDR-master/traindata/Training_align/002/HDRImg.hdr', '002', './ckpt/ahdrnet_stage1/output_150/002.hdr'] fails!
+['/data1/zyl/test/SelfHDR-master/traindata/Training/003/exposure.txt', ['/data1/zyl/test/SelfHDR-master/traindata/Training/003/262A0981.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/003/262A0982.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/003/262A0983.tif'], '/data1/zyl/test/SelfHDR-master/traindata/Training_align/003/HDRImg.hdr', '003', './ckpt/ahdrnet_stage1/output_150/003.hdr'] fails!
+['/data1/zyl/test/SelfHDR-master/traindata/Training/004/exposure.txt', ['/data1/zyl/test/SelfHDR-master/traindata/Training/004/262A1059.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/004/262A1060.tif', '/data1/zyl/test/SelfHDR-master/traindata/Training/004/262A1061.tif'], '/data1/zyl/test/SelfHDR-master/traindata/Training_align/004/HDRImg.hdr', '004', './ckpt/ahdrnet_stage1/output_150/004.hdr'] fails!
+dataset [sig17align(train)] created
+The number of training images = 19200
+Starting to load images via multiple imreaders

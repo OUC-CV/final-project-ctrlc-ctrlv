@@ -1,0 +1,24 @@
+AVG Time: 701.387 ms 
+ avg_psnr_l: 38.29, avg_psnr_mu: 41.72 
+ avg_ssim_l: 0.9898, avg_ssim_mu: 0.9739 
+
+AVG Time: 679.668 ms 
+ avg_psnr_l: 38.29, avg_psnr_mu: 41.72 
+ avg_ssim_l: 0.9898, avg_ssim_mu: 0.9739 
+
+AVG Time: 676.631 ms 
+ avg_psnr_l: 38.29, avg_psnr_mu: 41.72 
+ avg_ssim_l: 0.9898, avg_ssim_mu: 0.9739 
+
+AVG Time: 675.101 ms 
+ avg_psnr_l: 38.29, avg_psnr_mu: 41.72 
+ avg_ssim_l: 0.9898, avg_ssim_mu: 0.9739 
+
+AVG Time: 675.652 ms 
+ avg_psnr_l: 38.29, avg_psnr_mu: 41.72 
+ avg_ssim_l: 0.9898, avg_ssim_mu: 0.9739 
+
+AVG Time: 685.788 ms 
+ avg_psnr_l: 38.29, avg_psnr_mu: 41.72 
+ avg_ssim_l: 0.9898, avg_ssim_mu: 0.9739 
+

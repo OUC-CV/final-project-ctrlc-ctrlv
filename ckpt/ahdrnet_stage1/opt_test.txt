@@ -1,0 +1,43 @@
+----------------- Options ---------------
+                    alpha: 0.99                          
+               batch_size: 16                            
+                    beta1: 0.9                           
+                    beta2: 0.999                         
+             calc_metrics: True                          
+          checkpoints_dir: ./ckpt                        
+                     chop: False                         
+                 dataroot: /data1/zyl/test/SelfHDR-master/traindata/	[default: ]
+             dataset_name: sig17align                    	[default: ['eth']]
+                drop_last: True                          
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: default                       
+                  isTrain: False                         	[default: None]
+                load_iter: 10                            	[default: [0]]
+          load_optimizers: False                         
+                load_path:                               
+                       lr: 0.0001                        
+           lr_decay_iters: 200                           
+                lr_policy: step                          
+         max_dataset_size: inf                           
+                    model: selfhdr2                      	[default: None]
+                 momentum: 0                             
+                     name: ahdrnet_stage1                	[default: None]
+                  network: AHDRNet                       	[default: None]
+                    niter: 1000                          
+              niter_decay: 0                             
+           num_dataloader: 8                             
+                optimizer: Adam                          
+               patch_size: 128                           
+               print_freq: 100                           
+          save_epoch_freq: 1                             
+                save_imgs: True                          	[default: False]
+           serial_batches: False                         	[default: None]
+                  shuffle: True                          
+         stage0_inference: True                          	[default: False]
+          stru_lable_path:                               
+                   suffix:                               
+               test_every: 1000                          
+                  verbose: True                          
+             weight_decay: 0                             
+----------------- End -------------------
